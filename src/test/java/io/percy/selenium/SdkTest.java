@@ -17,11 +17,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 
+import org.openqa.selenium.manager.SeleniumManager;
 import org.openqa.selenium.remote.*;
 import static org.mockito.Mockito.*;
 import java.net.URL;
@@ -33,11 +35,15 @@ import java.net.URL;
   @BeforeAll
   public static void testSetup() throws IOException {
     // Disable browser logs from being logged to stdout
-    System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
+//    System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
 
-    WebDriverManager.firefoxdriver().setup();
+//    WebDriverManager.firefoxdriver().setup();
+//    WebDriverManager.chromedriver().setup();
+    driver = new ChromeDriver();
+//    SeleniumManager.getInstance().
     TestServer.startServer();
-    driver = new FirefoxDriver();
+//    driver = new FirefoxDriver();
+//    driver = new ChromeDriver();
     percy = new Percy(driver);
   }
 
